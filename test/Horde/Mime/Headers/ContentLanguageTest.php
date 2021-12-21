@@ -21,7 +21,7 @@
  * @subpackage UnitTests
  */
 class Horde_Mime_Headers_ContentLanguageTest
-extends PHPUnit_Framework_TestCase
+extends \PHPUnit\Framework\TestCase
 {
     /**
      * @dataProvider parsingOfInputProvider

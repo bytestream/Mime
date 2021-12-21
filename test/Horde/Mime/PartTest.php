@@ -20,7 +20,7 @@
  * @package    Mime
  * @subpackage UnitTests
  */
-class Horde_Mime_PartTest extends PHPUnit_Framework_TestCase
+class Horde_Mime_PartTest extends \PHPUnit\Framework\TestCase
 {
     public function testParseMessage()
     {

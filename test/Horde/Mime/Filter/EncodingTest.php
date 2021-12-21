@@ -23,7 +23,7 @@
  * @package    Mime
  * @subpackage UnitTests
  */
-class Horde_Mime_Filter_EncodingTest extends Horde_Test_Case
+class Horde_Mime_Filter_EncodingTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @dataProvider bodyFilterProvider()

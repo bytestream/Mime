@@ -20,7 +20,7 @@
  * @package    Mime
  * @subpackage UnitTests
  */
-class Horde_Mime_MailTest extends PHPUnit_Framework_TestCase
+class Horde_Mime_MailTest extends \PHPUnit\Framework\TestCase
 {
     public static function setUpBeforeClass()
     {

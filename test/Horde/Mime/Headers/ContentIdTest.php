@@ -21,7 +21,7 @@
  * @subpackage UnitTests
  */
 class Horde_Mime_Headers_ContentIdTest
-extends PHPUnit_Framework_TestCase
+extends \PHPUnit\Framework\TestCase
 {
     /**
      * @dataProvider valueProvider

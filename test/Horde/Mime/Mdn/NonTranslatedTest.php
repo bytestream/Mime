@@ -20,7 +20,7 @@
  * @package    Mime
  * @subpackage UnitTests
  */
-class Horde_Mime_Mdn_NonTranslatedTest extends PHPUnit_Framework_TestCase
+class Horde_Mime_Mdn_NonTranslatedTest extends \PHPUnit\Framework\TestCase
 {
     private $oldlocale;
 
