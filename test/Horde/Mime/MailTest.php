@@ -48,7 +48,7 @@ class Horde_Mime_MailTest extends \PHPUnit\Framework\TestCase
 
         $dummy = new Horde_Mail_Transport_Mock();
         $mail->send($dummy);
-        $sent = str_replace("\r\n", "\n", $dummy->sentMessages[0]);
+        $sent = $this->replaceNewLines($dummy->sentMessages[0]);
 
         $this->assertStringMatchesFormat(
 'Subject: My Subject
@@ -86,7 +86,7 @@ MIME-Version: 1.0',
 
         $dummy = new Horde_Mail_Transport_Mock();
         $mail->send($dummy);
-        $sent = str_replace("\r\n", "\n", $dummy->sentMessages[0]);
+        $sent = $this->replaceNewLines($dummy->sentMessages[0]);
 
         $this->assertStringMatchesFormat(
 'Subject: My Subject
@@ -125,7 +125,7 @@ MIME-Version: 1.0',
 
         $dummy = new Horde_Mail_Transport_Mock();
         $mail->send($dummy);
-        $sent = str_replace("\r\n", "\n", $dummy->sentMessages[0]);
+        $sent = $this->replaceNewLines($dummy->sentMessages[0]);
 
         $this->assertStringMatchesFormat(
 'Subject: =?iso-8859-1?b?U2No9m5lcg==?= Betreff
@@ -182,7 +182,7 @@ Content-Transfer-Encoding: quoted-printable',
 
         $dummy = new Horde_Mail_Transport_Mock();
         $mail->send($dummy);
-        $sent = str_replace("\r\n", "\n", $dummy->sentMessages[0]);
+        $sent = $this->replaceNewLines($dummy->sentMessages[0]);
 
         $this->assertStringMatchesFormat(
 'Subject: My Subject
@@ -239,7 +239,7 @@ bHRlciBEZWljaC4K
 
         $dummy = new Horde_Mail_Transport_Mock();
         $mail->send($dummy);
-        $sent = str_replace("\r\n", "\n", $dummy->sentMessages[0]);
+        $sent = $this->replaceNewLines($dummy->sentMessages[0]);
 
         $this->assertStringMatchesFormat(
 'Subject: My Subject
@@ -276,7 +276,7 @@ MIME-Version: 1.0',
 
         $dummy = new Horde_Mail_Transport_Mock();
         $mail->send($dummy);
-        $sent = str_replace("\r\n", "\n", $dummy->sentMessages[0]);
+        $sent = $this->replaceNewLines($dummy->sentMessages[0]);
 
         $this->assertStringMatchesFormat(
 'Subject: My Subject
@@ -310,7 +310,7 @@ MIME-Version: 1.0',
 
         $dummy = new Horde_Mail_Transport_Mock();
         $mail->send($dummy);
-        $sent = str_replace("\r\n", "\n", $dummy->sentMessages[0]);
+        $sent = $this->replaceNewLines($dummy->sentMessages[0]);
 
         $this->assertStringMatchesFormat(
 'Subject: My Subject
@@ -371,7 +371,7 @@ Content-Description: HTML Version of Message
 
         $dummy = new Horde_Mail_Transport_Mock();
         $mail->send($dummy);
-        $sent = str_replace("\r\n", "\n", $dummy->sentMessages[0]);
+        $sent = $this->replaceNewLines($dummy->sentMessages[0]);
 
         $this->assertStringMatchesFormat(
 'Subject: My Subject
@@ -443,15 +443,15 @@ end
 
         $dummy = new Horde_Mail_Transport_Mock();
         $mail->send($dummy);
-        $sent1 = str_replace("\r\n", "\n", $dummy->sentMessages[0]);
+        $sent1 = $this->replaceNewLines($dummy->sentMessages[0]);
 
         $mail->addHeader('To', 'recipient2@example.com');
         $mail->send($dummy);
-        $sent2 = str_replace("\r\n", "\n", $dummy->sentMessages[1]);
+        $sent2 = $this->replaceNewLines($dummy->sentMessages[1]);
 
         $mail->setBody("This is\nanother body");
         $mail->send($dummy);
-        $sent3 = str_replace("\r\n", "\n", $dummy->sentMessages[2]);
+        $sent3 = $this->replaceNewLines($dummy->sentMessages[2]);
 
         $hdrs1 = Horde_Mime_Headers::parseHeaders($sent1['header_text']);
         $hdrs2 = Horde_Mime_Headers::parseHeaders($sent2['header_text']);
@@ -484,7 +484,7 @@ end
 
         $dummy = new Horde_Mail_Transport_Mock();
         $mail->send($dummy);
-        $sent = str_replace("\r\n", "\n", $dummy->sentMessages[0]);
+        $sent = $this->replaceNewLines($dummy->sentMessages[0]);
 
         $this->assertStringMatchesFormat(
 'Subject: My Subject
@@ -623,7 +623,7 @@ Mike', $body);
         array_walk_recursive(
             $array,
             function (&$value) {
-                $value = str_replace("\r\n", "\n", $value);
+                $value = $this->replaceNewLines($value);
             }
         );
 
