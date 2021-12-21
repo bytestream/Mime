@@ -71,7 +71,7 @@ class Horde_Mime_Mdn_NonTranslatedTest extends \PHPUnit\Framework\TestCase
             array('error' => 'Foo')
         );
 
-        $sent = str_replace("\r\n", "\n", $mailer->sentMessages[0]);
+        $sent = $this->replaceNewLines($mailer->sentMessages[0]);
 
         $this->assertEquals(
             'auto-replied',
@@ -123,4 +123,15 @@ Disposition-Notification-To: =?utf-8?b?QcOkYg==?= <foo@example.com>
         );
     }
 
+    private function replaceNewLines(array &$array): array
+    {
+        array_walk_recursive(
+            $array,
+            function (&$value) {
+                $value = str_replace("\r\n", "\n", $value);
+            }
+        );
+
+        return $array;
+    }
 }
