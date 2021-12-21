@@ -529,7 +529,7 @@ id est laborum.
 
         $dummy = new Horde_Mail_Transport_Mock();
         $mail->send($dummy);
-        $sent = str_replace("\r\n", "\n", $dummy->sentMessages[0]);
+        $sent = $this->replaceNewLines($dummy->sentMessages[0]);
 
         $this->assertEquals(
             '',
@@ -618,4 +618,15 @@ Mike', $body);
         $this->assertEquals('quoted-printable', $headers->getHeader('Content-Transfer-Encoding'));
     }
 
+    private function replaceNewLines(array &$array): array
+    {
+        array_walk_recursive(
+            $array,
+            function (&$value) {
+                $value = str_replace("\r\n", "\n", $value);
+            }
+        );
+
+        return $array;
+    }
 }
