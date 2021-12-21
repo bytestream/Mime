@@ -623,7 +623,7 @@ Mike', $body);
         array_walk_recursive(
             $array,
             function (&$value) {
-                $value = $this->replaceNewLines($value);
+                $value = str_replace("\r\n", "\n", $value);
             }
         );
 
