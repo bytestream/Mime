@@ -22,14 +22,16 @@
  */
 class Horde_Mime_MailTest extends \PHPUnit\Framework\TestCase
 {
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
+        parent::setUpBeforeClass();
         $_SERVER['SERVER_NAME'] = 'mail.example.com';
         setlocale(LC_ALL, 'C');
     }
 
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
+        parent::tearDownAfterClass();
         unset($_SERVER['SERVER_NAME']);
         setlocale(LC_ALL, '');
     }

@@ -420,8 +420,7 @@ class Horde_Mime_PartTest extends \PHPUnit\Framework\TestCase
             $part1->getAllContentTypeParameters()
         );
 
-        $this->assertInternalType(
-            'resource',
+        $this->assertIsResource(
             $part1->getContents(array('stream' => true))
         );
 
@@ -1033,8 +1032,9 @@ Test.
         return $part;
     }
 
-    public function setUp()
+    public function setUp(): void
     {
+        parent::setUp();
         Horde_Mime_Part::$defaultCharset =
             Horde_Mime_Headers::$defaultCharset = 'us-ascii';
     }

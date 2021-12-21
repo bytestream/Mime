@@ -24,14 +24,16 @@ class Horde_Mime_Mdn_NonTranslatedTest extends \PHPUnit\Framework\TestCase
 {
     private $oldlocale;
 
-    public function setUp()
+    public function setUp(): void
     {
+        parent::setUp();
         $this->oldlocale = setlocale(LC_MESSAGES, 0);
         setlocale(LC_MESSAGES, 'C');
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
+        parent::tearDown();
         setlocale(LC_MESSAGES, $this->oldlocale);
     }
 

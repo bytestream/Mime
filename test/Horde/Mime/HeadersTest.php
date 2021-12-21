@@ -314,13 +314,11 @@ class Horde_Mime_HeadersTest extends \PHPUnit\Framework\TestCase
         );
 
         /* @deprecated */
-        $this->assertInternalType(
-            'string',
+        $this->assertIsString(
             $hdrs->getValue('content-type', Horde_Mime_Headers::VALUE_BASE)
         );
 
-        $this->assertInternalType(
-            'string',
+        $this->assertIsString(
             $hdrs['content-type']->value
         );
     }
@@ -631,8 +629,7 @@ class Horde_Mime_HeadersTest extends \PHPUnit\Framework\TestCase
         $hdrs = Horde_Mime_Headers::parseHeaders($data);
 
         /* @deprecated */
-        $this->assertInternalType(
-            'string',
+        $this->assertIsString(
             $hdrs->getValue($header, Horde_Mime_Headers::VALUE_BASE)
         );
         $this->assertEquals(
@@ -640,8 +637,7 @@ class Horde_Mime_HeadersTest extends \PHPUnit\Framework\TestCase
             $hdrs->getValue($header)
         );
 
-        $this->assertInternalType(
-            'string',
+        $this->assertIsString(
             $hdrs[$header]->value_single
         );
         $this->assertEquals(

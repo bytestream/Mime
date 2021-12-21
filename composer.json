@@ -19,8 +19,8 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "bytestream/horde-exception": "^2",
-        "bytestream/horde-listheaders": "dev-master",
-        "bytestream/horde-mail": "dev-master",
+        "bytestream/horde-listheaders": "^1.2",
+        "bytestream/horde-mail": "^2.5",
         "bytestream/horde-stream": "^1.3",
         "bytestream/horde-stream-filter": "^2",
         "bytestream/horde-support": "^2.1",
@@ -29,7 +29,8 @@
         "bytestream/horde-util": "^2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "bytestream/horde-text-filter": "^2.4"
     },
     "autoload": {
         "psr-0": {
@@ -40,5 +41,7 @@
         "psr-0": {
             "Horde_Mime": "test/"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
