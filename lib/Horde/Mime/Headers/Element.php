@@ -176,6 +176,7 @@ implements IteratorAggregate
 
     /**
      */
+	#[ReturnTypeWillChange]
     public function getIterator()
     {
         return new ArrayIterator($this->_values);
