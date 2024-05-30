@@ -504,7 +504,7 @@ class Horde_Mime_Mail
             );
         }
 
-        return $this->_headers->toString() . $this->getBasePart()->toString();
+        return $this->_headers->toString() . $this->getBasePart()->toString(array('encode' => Horde_Mime_Part::ENCODE_7BIT | Horde_Mime_Part::ENCODE_8BIT | Horde_Mime_Part::ENCODE_BINARY));
     }
 
     /**
