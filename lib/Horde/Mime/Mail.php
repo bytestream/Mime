@@ -493,11 +493,17 @@ class Horde_Mime_Mail
      */
     public function getRaw($stream = true)
     {
-        return $this->getBasePart()->toString(array(
+        $raw = $this->getBasePart()->toString(array(
             'stream' => $stream,
             'encode' => Horde_Mime_Part::ENCODE_7BIT | Horde_Mime_Part::ENCODE_8BIT | Horde_Mime_Part::ENCODE_BINARY,
             'headers' => $this->_headers,
         ));
+
+        if ($stream && is_resource($raw)) {
+            rewind($raw);
+        }
+
+        return $raw;
     }
 
     /**
