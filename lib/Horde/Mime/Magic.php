@@ -164,7 +164,6 @@ class Horde_Mime_Magic
 
             if ($res) {
                 $type = trim(finfo_file($res, $path));
-                finfo_close($res);
 
                 /* Remove any additional information. */
                 if (empty($opts['nostrip'])) {
@@ -213,7 +212,6 @@ class Horde_Mime_Magic
             }
 
             $type = trim(finfo_buffer($res, $data));
-            finfo_close($res);
 
             /* Remove any additional information. */
             if (empty($opts['nostrip'])) {

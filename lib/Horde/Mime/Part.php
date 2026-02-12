@@ -1124,12 +1124,14 @@ implements ArrayAccess, Countable, RecursiveIterator, Serializable
      * Get the transfer encoding for the part based on the user requested
      * transfer encoding and the current contents of the part.
      *
-     * @param integer $encode  A mask of allowable encodings.
+     * @param int|null $encode A mask of allowable encodings.
      *
      * @return string  The transfer-encoding of this part.
      */
-    protected function _getTransferEncoding($encode = self::ENCODE_7BIT)
+    protected function _getTransferEncoding(?int $encode)
     {
+        $encode = $encode ?? self::ENCODE_7BIT;
+
         if (!empty($this->_temp['sendEncoding'])) {
             return $this->_temp['sendEncoding'];
         } elseif (!empty($this->_temp['sendTransferEncoding'][$encode])) {
