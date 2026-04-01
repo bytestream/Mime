@@ -227,10 +227,10 @@ implements ArrayAccess, Countable, RecursiveIterator, Serializable
      * Add a disposition parameter to this part.
      *
      * @param string $label  The disposition parameter label.
-     * @param string $data   The disposition parameter data. If null, removes
+     * @param ?string $data  The disposition parameter data. If null, removes
      *                       the parameter (@since 2.8.0).
      */
-    public function setDispositionParameter($label, $data)
+    public function setDispositionParameter($label, $data): void
     {
         $cd = $this->_headers['content-disposition'];
 
