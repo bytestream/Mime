@@ -791,10 +791,10 @@ implements ArrayAccess, Countable, RecursiveIterator, Serializable
      * Add/remove a content type parameter to this part.
      *
      * @param string $label  The content-type parameter label.
-     * @param string $data   The content-type parameter data. If null, removes
+     * @param ?string $data  The content-type parameter data. If null, removes
      *                       the parameter (@since 2.8.0).
      */
-    public function setContentTypeParameter($label, $data)
+    public function setContentTypeParameter($label, $data): void
     {
         $ct = $this->_headers['content-type'];
 
