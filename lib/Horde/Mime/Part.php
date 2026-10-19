@@ -2221,7 +2221,7 @@ implements ArrayAccess, Countable, RecursiveIterator, Serializable
     protected function _reEncodeMessageAttachment(Horde_Mime_Part $part)
     {
         $new_part = Horde_Mime_Part::parseMessage($part->getContents());
-        $part->setContents($new_part->getContents(array('stream' => true)), array('encoding' => self::ENCODE_BINARY));
+        $part->setContents($new_part->getContents(array('stream' => true)), array('encoding' => 'binary'));
         $part->setTransferEncoding('base64', array('send' => true));
     }
 
