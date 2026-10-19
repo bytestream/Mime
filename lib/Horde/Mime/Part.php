@@ -2112,7 +2112,7 @@ implements ArrayAccess, Countable, RecursiveIterator, Serializable
             substr(
                 $rawtext,
                 $b_find[$base_pos]['start'],
-                $b_find[$base_pos]['length'] - 1
+                $b_find[$base_pos]['length']
             ),
             $type,
             $id
