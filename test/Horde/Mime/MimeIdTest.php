@@ -149,7 +149,16 @@ class Horde_Mime_MimeIdTest extends \PHPUnit\Framework\TestCase
             array('1', '2', false),
             array('1', '2.1', false),
             array('1', '10', false),
-            array('1', '10.0', false)
+            array('1', '10.0', false),
+            /* Regression test for fix to replace loose == 0 with empty()
+             * check. With base '000', loose comparison '00' == 0 is true,
+             * but empty('00') is false. Old code incorrectly returns true
+             * for any non-zero child when base is '000'. */
+            array('000', '1', false),
+            array('000', '2', false),
+            array('000', '00.1', true),
+            array('000', '00.0', true),
+            array('000', '00.1.1', true)
         );
     }
 
